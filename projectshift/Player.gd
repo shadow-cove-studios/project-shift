@@ -18,13 +18,14 @@ var gravity = 11
 
 # i use arch by the way. well actually i don't.\
 
+#this function allows you to move your camera
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-65), deg_to_rad(60))
 
-func _ready():
+func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
