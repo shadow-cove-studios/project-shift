@@ -35,7 +35,7 @@ func _physics_process(delta):
 
 	#makes player jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():#this little param checker right there stops people from infjumping
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY# please don't remove it
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
