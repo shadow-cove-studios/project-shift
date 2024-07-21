@@ -27,7 +27,7 @@ func _unhandled_input(event):
 
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+#AHHH IM SO ANNOYED
 func _physics_process(delta):
 	# Add the gravity. -- godot, you should not of given me this power
 	if not is_on_floor():
