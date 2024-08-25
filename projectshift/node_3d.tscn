@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciutdtcryq4ui"]
+[gd_scene load_steps=20 format=3 uid="uid://ciutdtcryq4ui"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rudjb"]
 [ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Carpet0012_1_350.jpg" id="2_efb06"]
@@ -21,6 +21,9 @@ ambient_light_sky_contribution = 0.65
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwu6q"]
 albedo_texture = ExtResource("2_efb06")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cbqko"]
+size = Vector3(0.0828857, 2.85071, 13.3138)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg0j3"]
 albedo_texture = ExtResource("2_segyv")
@@ -84,25 +87,56 @@ transform = Transform3D(13.6337, 0, 0, 0, 0.433686, 0, 0, 0, 13.1712, -0.123365,
 material_override = SubResource("StandardMaterial3D_fwu6q")
 use_collision = true
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106544, 0, -0.011939)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70104, 1.49484, 0.01019)
+shape = SubResource("BoxShape3D_cbqko")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(-6.15432e-07, 0, -1, 0, 3.10648, 0, 14.0794, 0, -4.37114e-08, 6.73248, 1.20822, 0.122738)
 material_override = SubResource("StandardMaterial3D_cg0j3")
 mesh = SubResource("QuadMesh_b2016")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, -6.97491, 1.49484, -0.00174904)
+shape = SubResource("BoxShape3D_cbqko")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(-6.15432e-07, 0, 1, 0, 3.10648, 0, -14.0794, 0, -4.37114e-08, -6.96177, 1.23717, 0.110367)
 material_override = SubResource("StandardMaterial3D_hvdqd")
 mesh = SubResource("QuadMesh_b2016")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D3" type="StaticBody3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D2/StaticBody3D3"]
 transform = Transform3D(-14.0794, 0, -8.74228e-08, 0, 3.10648, 0, 1.23086e-06, 0, -1, -0.0189605, 1.2476, 6.57204)
 material_override = SubResource("StandardMaterial3D_p3xjj")
 mesh = SubResource("QuadMesh_b2016")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2/StaticBody3D3"]
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, 6.56491)
+shape = SubResource("BoxShape3D_cbqko")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D3"]
 transform = Transform3D(14.0794, 0, 0, 0, 3.10648, 0, 0, 0, 1, -0.00816345, 1.23717, -6.65991)
 material_override = SubResource("StandardMaterial3D_bhv6f")
 mesh = SubResource("QuadMesh_b2016")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, -6.5873)
+shape = SubResource("BoxShape3D_cbqko")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(14.1578, 0, 0, 0, -5.7606e-07, -1, 0, 13.1787, -4.37114e-08, 0.0225182, 2.79114, -0.0347669)
