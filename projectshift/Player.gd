@@ -37,7 +37,7 @@ func _unhandled_input(event):
 
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-#AHHH IM SO ANNOYED
+#AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(8/26 2024)
 func _physics_process(delta):
 	# Add the gravity. -- godot, you should not of given me this power
 	if not is_on_floor():
@@ -76,3 +76,7 @@ func _headbob(time) -> Vector3:
 	return pos
 
 # hashtag only in ohios
+#i think im loosing my mental integrity
+
+
+#gonna make a pickup system(so you can pick things up soon)
