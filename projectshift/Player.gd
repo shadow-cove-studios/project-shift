@@ -17,16 +17,15 @@ const SENSITIVITY = 0.003
 var gravity = 11
 
 #headbob variables
-var BOB_FREQ = 2.0
+var BOB_FREQ = 3.0
 var BOB_AMP = 0.08
 var t_bob = 0.0
-
 
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
-# i use arch by the way. well actually i don't.\
+# i use arch by the way. well actually i don't.
 
 #this function allows you to move your camera
 func _unhandled_input(event):
@@ -65,18 +64,26 @@ func _physics_process(delta):
 	#head bob part that makes the head bob work ig
 	t_bob += delta *velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
-
 	move_and_slide()
 
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP +1
-	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP 
+	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 
 # hashtag only in ohios
 #i think im loosing my mental integrity
 
+#THIS IS A FUNCTION USED FOR TESTING ONLY
+#IT CLOSES THE GAME WHEN YOU PRESS escape, or command and shift
+#(Escape, or why i added this, on macbook your keys sometimes stop working, especially
+# the escape key, so the ui cancel bind is ESCAPE, but also CONTROL/COMMAND depending on device)
+#turn off the comments in  front of this function if your escape key isn't working, and use a
+#keyboard tester first, or your mouse will be stuck in the window forever
+func _input (event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 
 #gonna make a pickup system(so you can pick things up soon)
