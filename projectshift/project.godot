@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="ProjectShift"
 
+[global_group]
+
+canGrab="if an object is in this group, you can grab it"
+
 [input]
 
 ui_cancel={

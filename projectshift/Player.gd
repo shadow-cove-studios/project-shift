@@ -5,11 +5,13 @@ extends CharacterBody3D
 #
 # Please understand the following, and when something breaks, insert the why below, and tick the crash counter:
 #
-# Crash counter:0
+# Crash counter:1
+# the grab script still isint working
 
 # i know the variable name "speed" is very indescriptive, but it is basically changed from 
 var speed: float # walkspeed to sprintspeed depending on if you're walking or sprinting.
-#please, resist the urge to change this to 99999999
+
+#please, resist the urge to change these to 99999999
 const WALK_SPEED = 3.0 
 const SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
