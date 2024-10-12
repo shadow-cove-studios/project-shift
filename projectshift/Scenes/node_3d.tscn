@@ -74,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 script = ExtResource("2_fxg77")
 
 [node name="Door" parent="." instance=ExtResource("3_ifs4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.51286, 2.95483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["canGrab"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41884, 3.96947, -4.83323)
@@ -171,7 +171,7 @@ light_energy = 1.177
 light_indirect_energy = 1.941
 
 [node name="SpotLight3D7" type="OmniLight3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.0823, 2.4875, -4.06372)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.0823, 2.49536, -4.06372)
 light_energy = 1.177
 light_indirect_energy = 1.941
 

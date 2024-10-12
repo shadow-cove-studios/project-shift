@@ -40,6 +40,7 @@ func _unhandled_input(event):
 
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 #AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(current date is8/26 2024)
 #this function includes all movement and controls, such as gravity, jumping, sprinting, moving, and part of head bob
 func _physics_process(delta):
@@ -55,7 +56,7 @@ func _physics_process(delta):
 	else:
 		speed = WALK_SPEED
 	
-	# Get the input direction and handle the movement/deceleration.
+	# Gets the input direction and handles the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

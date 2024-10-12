@@ -4,6 +4,7 @@ var toggle = false
 var interactable = true
 @export var animation_player: AnimationPlayer
 
+
 func interact():
 	if interactable == true:
 		interactable = false  
