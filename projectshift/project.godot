@@ -15,9 +15,18 @@ run/main_scene="res://Scenes/node_3d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalScript="*res://globalScript.gd"
+Console="*res://addons/console/console.gd"
+
 [dotnet]
 
 project/assembly_name="ProjectShift"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [global_group]
 

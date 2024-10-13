@@ -37,10 +37,11 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-65), deg_to_rad(60))
+		
+
 
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 #AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(current date is8/26 2024)
 #this function includes all movement and controls, such as gravity, jumping, sprinting, moving, and part of head bob
 func _physics_process(delta):
@@ -82,14 +83,9 @@ func _headbob(time) -> Vector3:
 # hashtag only in ohios
 #i think im loosing my mental integrity
 
-#THIS IS A FUNCTION USED FOR TESTING ONLY
-#IT CLOSES THE GAME WHEN YOU PRESS escape, or command and shift
-#or why i added this, on macbook your keys sometimes stop working, especially
-# the escape key, so the ui cancel bind is ESCAPE, but also CONTROL/COMMAND depending on device)
-#turn off the comments in  front of this function if your escape key isn't working, and use a
-#keyboard tester first, or your mouse will be stuck in the window forever
-func _input (event):
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
 
-#gonna make a pickup system(so you can pick things up soon)
+#func _input (event):
+#	if event.is_action_pressed("ui_cancel"):
+#		get_tree().quit() im not using this code anymore
+
+#type " exit or quit" in the dev console to close the debugging window

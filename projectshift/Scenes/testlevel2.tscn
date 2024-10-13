@@ -1,12 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://ciutdtcryq4ui"]
+[gd_scene load_steps=23 format=3 uid="uid://dcquo7esksimn"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_16opk"]
-[ext_resource type="Script" path="res://Scenes/node_3d.gd" id="1_x0ou4"]
-[ext_resource type="Script" path="res://Scripts/raycast.gd" id="2_fxg77"]
-[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://leather_seamless_texture_6689.jpg" id="3_ftgpg"]
-[ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/door.tscn" id="3_ifs4j"]
-[ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="4_6t61i"]
-[ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Carpet0012_1_350.jpg" id="5_82yxr"]
+[ext_resource type="Script" path="res://Scenes/node_3d.gd" id="1_akjsa"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_cey3n"]
+[ext_resource type="Script" path="res://Scripts/raycast.gd" id="3_6tjii"]
+[ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/door.tscn" id="4_egtuf"]
+[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://leather_seamless_texture_6689.jpg" id="5_6nd01"]
+[ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="6_m4vea"]
+[ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Carpet0012_1_350.jpg" id="7_amvdg"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -26,36 +26,36 @@ ambient_light_sky_contribution = 0.65
 size = Vector3(0.0828857, 2.85071, 13.3138)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg0j3"]
-albedo_texture = ExtResource("3_ftgpg")
+albedo_texture = ExtResource("5_6nd01")
 
 [sub_resource type="QuadMesh" id="QuadMesh_b2016"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvdqd"]
-albedo_texture = ExtResource("3_ftgpg")
+albedo_texture = ExtResource("5_6nd01")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3xjj"]
-albedo_texture = ExtResource("3_ftgpg")
+albedo_texture = ExtResource("5_6nd01")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhv6f"]
-albedo_texture = ExtResource("3_ftgpg")
+albedo_texture = ExtResource("5_6nd01")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3edn8"]
-albedo_texture = ExtResource("4_6t61i")
+albedo_texture = ExtResource("6_m4vea")
 
 [sub_resource type="QuadMesh" id="QuadMesh_xi6o7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwu6q"]
-albedo_texture = ExtResource("5_82yxr")
+albedo_texture = ExtResource("7_amvdg")
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_x0ou4")
+script = ExtResource("1_akjsa")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i72kx")
 camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("1_16opk")
+script = ExtResource("2_cey3n")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -73,9 +73,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.356315)
-script = ExtResource("2_fxg77")
+script = ExtResource("3_6tjii")
 
-[node name="Door" parent="." instance=ExtResource("3_ifs4j")]
+[node name="Door" parent="." instance=ExtResource("4_egtuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["canGrab"]]
@@ -89,6 +89,21 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 shape = SubResource("BoxShape3D_erbw3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("BoxMesh_3dk0g")
+skeleton = NodePath("../..")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["canGrab"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.540605, 3.96947, -4.83323)
+collision_layer = 4
+collision_mask = 7
+mass = 8.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_erbw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("BoxMesh_3dk0g")
 skeleton = NodePath("../..")
