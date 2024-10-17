@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ciutdtcryq4ui"]
+[gd_scene load_steps=24 format=3 uid="uid://ciutdtcryq4ui"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_16opk"]
 [ext_resource type="Script" path="res://Scenes/node_3d.gd" id="1_x0ou4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/door.tscn" id="3_ifs4j"]
 [ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="4_6t61i"]
 [ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Carpet0012_1_350.jpg" id="5_82yxr"]
+[ext_resource type="Script" path="res://Scenes/fps_counter.gd" id="8_acxbm"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -186,3 +187,8 @@ light_indirect_energy = 1.941
 transform = Transform3D(13.6337, 0, 0, 0, 0.433686, 0, 0, 0, 13.1712, -0.123365, -0.0565209, 0.00427151)
 material_override = SubResource("StandardMaterial3D_fwu6q")
 use_collision = true
+
+[node name="fps counter" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("8_acxbm")
