@@ -48,7 +48,7 @@ albedo_texture = ExtResource("4_6t61i")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwu6q"]
 albedo_texture = ExtResource("5_82yxr")
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = ExtResource("1_x0ou4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
