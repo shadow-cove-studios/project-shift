@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8vjqfl8olko6"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_gtsmw"]
-[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://leather_seamless_texture_6689.jpg" id="1_leomy"]
+[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="1_leomy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0g4o5"]
 

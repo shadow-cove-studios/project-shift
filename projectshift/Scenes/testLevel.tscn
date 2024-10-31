@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://bk7o6l6qy64o4"]
 
-[ext_resource type="Script" path="res://Scenes/node_3d.gd" id="1_n0wrs"]
+[ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_n0wrs"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_m3esd"]
 [ext_resource type="Script" path="res://Scripts/raycast.gd" id="3_8sjud"]
-[ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/door.tscn" id="4_8uqyk"]
-[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://leather_seamless_texture_6689.jpg" id="5_ms2g7"]
-[ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="6_5okf6"]
-[ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Carpet0012_1_350.jpg" id="7_7homc"]
+[ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/Non-level-scenes/door.tscn" id="4_8uqyk"]
+[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="5_ms2g7"]
+[ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://Assets/textures/240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="6_5okf6"]
+[ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Assets/textures/Carpet0012_1_350.jpg" id="7_7homc"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
