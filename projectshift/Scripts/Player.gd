@@ -81,9 +81,20 @@ func _headbob(time) -> Vector3:
 	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 	
-func bounce(bounceVelocity: float):
-	print("bounced")
-	velocity.y = velocity.y + bounceVelocity
+
+#these functions are triggered when the player hits bouncepads
+
+func bounce(bounceVelocity: float):#vertical bounce function
+	velocity.y = bounceVelocity
+
+func xzbounce(bounceVelocityx: float, bounceVelocityz: float):#horizontal bounce function
+	velocity.x = velocity.x + bounceVelocityx
+	velocity.z = velocity.z + bounceVelocityz
+
+func xyzbounce(bounceVelocityx: float, bounceVelocityy: float, bounceVelocityz: float):#vertical and horizontal bounce function
+	velocity.x = velocity.x + bounceVelocityx
+	velocity.y = velocity.y + bounceVelocityy
+	velocity.z = velocity.z + bounceVelocityz
 
 # hashtag only in ohios
 #i think im loosing my mental integrity
