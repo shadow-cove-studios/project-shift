@@ -5,7 +5,7 @@ extends CharacterBody3D
 #
 # Please understand the following, and when something breaks, insert the why below, and tick the crash counter:
 #
-# Crash counter:1
+# Crash counter:2
 # the grab script still isint working
 
 # i know the variable name "speed" is very indescriptive, but it is basically changed from 
@@ -80,6 +80,10 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP +1
 	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+	
+func bounce(bounceVelocity: float):
+	print("bounced")
+	velocity.y = velocity.y + bounceVelocity
 
 # hashtag only in ohios
 #i think im loosing my mental integrity

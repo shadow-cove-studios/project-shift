@@ -31,6 +31,7 @@ enabled=PackedStringArray("res://addons/console/plugin.cfg")
 [global_group]
 
 canGrab="if an object is in this group, you can grab it"
+player=""
 
 [input]
 
