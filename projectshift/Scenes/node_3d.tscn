@@ -5,18 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="3_ftgpg"]
 [ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/Non-level-scenes/door.tscn" id="3_ifs4j"]
 [ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://Assets/textures/240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="4_6t61i"]
+[ext_resource type="PackedScene" uid="uid://cf4m13xg8uq1q" path="res://Scenes/Non-level-scenes/cube.tscn" id="4_hg1hg"]
 [ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Assets/textures/Carpet0012_1_350.jpg" id="5_82yxr"]
 [ext_resource type="Script" path="res://Scripts/fps_counter.gd" id="8_acxbm"]
+[ext_resource type="PackedScene" uid="uid://ma21vjnc8vwm" path="res://Scenes/Non-level-scenes/vertical_bouncepad.tscn" id="9_d5gd1"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.65
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qmmw7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_erbw3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_3dk0g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbqko"]
 size = Vector3(0.0828857, 2.85071, 13.3138)
@@ -55,20 +53,8 @@ camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 [node name="Door" parent="." instance=ExtResource("3_ifs4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["canGrab"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41884, 3.96947, -4.83323)
-collision_layer = 4
-collision_mask = 7
-mass = 8.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
-shape = SubResource("BoxShape3D_erbw3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
-mesh = SubResource("BoxMesh_3dk0g")
-skeleton = NodePath("../..")
+[node name="Cube" parent="." instance=ExtResource("4_hg1hg")]
+script = null
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -168,3 +154,6 @@ use_collision = true
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("8_acxbm")
+
+[node name="verticalBouncepad" parent="." instance=ExtResource("9_d5gd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195932, -0.27795, -3.43125)

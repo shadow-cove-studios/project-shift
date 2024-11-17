@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf4m13xg8uq1q"]
+
+[ext_resource type="Script" path="res://Scenes/Non-level-scenes/mesh_instance_3d.gd" id="1_8qhuw"]
+
+[sub_resource type="GDScript" id="GDScript_364qr"]
+script/source = "extends RigidBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_erbw3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3dk0g"]
+
+[node name="Cube" type="RigidBody3D" groups=["canGrab"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41884, 3.96947, -4.83323)
+collision_layer = 4
+collision_mask = 7
+mass = 8.0
+script = SubResource("GDScript_364qr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_erbw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("BoxMesh_3dk0g")
+skeleton = NodePath("../..")
+script = ExtResource("1_8qhuw")
