@@ -156,3 +156,4 @@ offset_bottom = 23.0
 script = ExtResource("8_acxbm")
 
 [node name="verticalBouncepad" parent="." instance=ExtResource("9_d5gd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195932, -0.27795, -3.43125)
