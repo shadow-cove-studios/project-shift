@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://ykah2hnwx0o2"]
+
+[ext_resource type="Script" path="res://Scenes/Non-level-scenes/button.gd" id="1_eoeja"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ga4r"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xvbkv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lqqg"]
+albedo_color = Color(1, 0.287307, 0.225237, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_22jhl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4rmo"]
+size = Vector3(0.293701, 1, 0.471573)
+
+[sub_resource type="Animation" id="Animation_833c0"]
+resource_name = "pushdown"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.000974116, 0.404813, 0.282569), Vector3(-0.000974116, 0.390696, 0.272084)]
+}
+
+[sub_resource type="Animation" id="Animation_gmkxu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.000974116, 0.404813, 0.282569)]
+}
+
+[sub_resource type="Animation" id="Animation_xgyjd"]
+resource_name = "pushup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.000974116, 0.390696, 0.272084), Vector3(-0.000974116, 0.404813, 0.282569)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qkpp"]
+_data = {
+"RESET": SubResource("Animation_gmkxu"),
+"pushdown": SubResource("Animation_833c0"),
+"pushup": SubResource("Animation_xgyjd")
+}
+
+[node name="button" type="StaticBody3D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_eoeja")
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.292693, 0, 0, 0, 1, 0, 0, 0, 0.295967, 0, 0, 0)
+mesh = SubResource("BoxMesh_6ga4r")
+
+[node name="Button" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.00692143, -0.072176, 0, 0.0072176, 0.0692143, -0.000974116, 0.404813, 0.282569)
+mesh = SubResource("CylinderMesh_xvbkv")
+skeleton = NodePath("../ButtonMount")
+surface_material_override/0 = SubResource("StandardMaterial3D_3lqqg")
+
+[node name="ButtonMount" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.233647, 0, 0, 0, 0.154302, 0.0758589, 0, -0.160922, 0.0727385, 0, 0.353441, 0.242706)
+mesh = SubResource("BoxMesh_22jhl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, 0, 0.085289)
+shape = SubResource("BoxShape3D_a4rmo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8qkpp")
+}
