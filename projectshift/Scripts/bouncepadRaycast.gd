@@ -12,3 +12,4 @@ func _process(delta):
 		var hitObj = get_collider()#see what it is
 		if hitObj != null and hitObj.has_method("bounce"):#and if it has the method "interact", and you press the interact key
 			hitObj.bounce(8) #trigger the interact method on it
+			

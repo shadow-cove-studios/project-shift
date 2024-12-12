@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=22 format=3 uid="uid://ciutdtcryq4ui"]
-=======
-[gd_scene load_steps=24 format=3 uid="uid://ciutdtcryq4ui"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_x0ou4"]
 [ext_resource type="PackedScene" uid="uid://c5odi082a5pbt" path="res://Scenes/Non-level-scenes/character_body_3d.tscn" id="2_rvutk"]
@@ -13,12 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://fgt2oebsipf0" path="res://Assets/textures/Carpet0012_1_350.jpg" id="5_82yxr"]
 [ext_resource type="Script" path="res://Scripts/fps_counter.gd" id="8_acxbm"]
 [ext_resource type="PackedScene" uid="uid://ma21vjnc8vwm" path="res://Scenes/Non-level-scenes/vertical_bouncepad.tscn" id="9_d5gd1"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://dyi08e5hpkhno" path="res://Scenes/Non-level-scenes/moving_platform.tscn" id="10_or7xy"]
-=======
-[ext_resource type="PackedScene" uid="uid://byv8kv5mnolsh" path="res://Scenes/Non-level-scenes/CubeButton.tscn" id="11_5gi6b"]
 [ext_resource type="PackedScene" uid="uid://ykah2hnwx0o2" path="res://Scenes/Non-level-scenes/button.tscn" id="12_n8jar"]
->>>>>>> Stashed changes
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -35,9 +27,6 @@ albedo_texture = ExtResource("3_ftgpg")
 [sub_resource type="QuadMesh" id="QuadMesh_b2016"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvdqd"]
-albedo_texture = ExtResource("3_ftgpg")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3xjj"]
 albedo_texture = ExtResource("3_ftgpg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhv6f"]
@@ -94,19 +83,6 @@ material_override = SubResource("StandardMaterial3D_hvdqd")
 mesh = SubResource("QuadMesh_b2016")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="Level/StaticBody3D2"]
-transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level/StaticBody3D2/StaticBody3D3"]
-transform = Transform3D(-14.0794, 0, -8.74228e-08, 0, 3.10648, 0, 1.23086e-06, 0, -1, -0.0189605, 1.2476, 6.57204)
-material_override = SubResource("StandardMaterial3D_p3xjj")
-mesh = SubResource("QuadMesh_b2016")
-skeleton = NodePath("../../../..")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/StaticBody3D2/StaticBody3D3"]
-transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, 6.56491)
-shape = SubResource("BoxShape3D_cbqko")
-
 [node name="StaticBody3D3" type="StaticBody3D" parent="Level"]
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Level/StaticBody3D3"]
@@ -116,7 +92,7 @@ mesh = SubResource("QuadMesh_b2016")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/StaticBody3D3"]
-transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, -6.5873)
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, 6.56491)
 shape = SubResource("BoxShape3D_cbqko")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Level"]
@@ -160,6 +136,19 @@ transform = Transform3D(13.6337, 0, 0, 0, 0.433686, 0, 0, 0, 13.1712, -0.123365,
 material_override = SubResource("StandardMaterial3D_fwu6q")
 use_collision = true
 
+[node name="StaticBody3D4" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -0.121941)
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Level/StaticBody3D4"]
+transform = Transform3D(14.0794, 0, 0, 0, 3.10648, 0, 0, 0, 1, -0.00816345, 1.23717, -6.65991)
+material_override = SubResource("StandardMaterial3D_bhv6f")
+mesh = SubResource("QuadMesh_b2016")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/StaticBody3D4"]
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, -0.31124, 1.49483, 6.56491)
+shape = SubResource("BoxShape3D_cbqko")
+
 [node name="fps counter" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -168,13 +157,21 @@ script = ExtResource("8_acxbm")
 [node name="verticalBouncepad" parent="." instance=ExtResource("9_d5gd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195932, -0.27795, -3.43125)
 
-<<<<<<< Updated upstream
 [node name="movingPlatform" parent="." instance=ExtResource("10_or7xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18323, 1.91336, -5.04297)
-=======
-[node name="CubeButton" parent="." instance=ExtResource("11_5gi6b")]
+
+[node name="CubeButton" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34745, 0.27863, -5.21452)
+script = null
 
 [node name="button" parent="." instance=ExtResource("12_n8jar")]
 transform = Transform3D(0.00527089, 0, -0.999986, 0, 1, 0, 0.999986, 0, 0.00527089, 4.5375, 0.671702, 1.19598)
->>>>>>> Stashed changes
