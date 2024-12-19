@@ -71,6 +71,8 @@ func _physics_process(delta):
 	#one of the head bob parts that makes the head bob work ig
 	t_bob += delta *velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
+	if carried_object:
+		carried_object.global_position = $CarryPosition.global_position
 	#the holy move and slide
 	move_and_slide()
 	#it makes you move in the first place, and it is ran at the the physics process, after EVERYTHING ELSE
@@ -96,6 +98,49 @@ func xyzbounce(bounceVelocityx: float, bounceVelocityy: float, bounceVelocityz: 
 	velocity.y = velocity.y + bounceVelocityy
 	velocity.z = velocity.z + bounceVelocityz
 
+
+
+@export var pickup_range: float = 3.0
+@export var pickup_mask: int = 1  # Adjust this to match your cube's collision layer
+
+var carried_object: RigidBody3D = null
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("pickup"):
+		if carried_object:
+			drop_object()
+		else:
+			pickup_object()
+
+func pickup_object():
+	var space_state = get_world_3d().direct_space_state
+	var camera = get_viewport().get_camera_3d()
+	var mouse_pos = get_viewport().get_mouse_position()
+
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * pickup_range
+
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.collision_mask = pickup_mask
+
+	var result = space_state.intersect_ray(query)
+
+	if result:
+		var collider = result["collider"]
+		if collider is RigidBody3D:
+			carried_object = collider
+			carried_object.freeze = true
+			carried_object.global_position = $CarryPosition.global_position
+
+func drop_object():
+	if carried_object:
+		carried_object.freeze = false
+		carried_object = null
+
+
+	if carried_object:
+		carried_object.global_position = $CarryPosition.global_position
 # hashtag only in ohios
 #i think im loosing my mental integrity
 
