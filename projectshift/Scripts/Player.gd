@@ -29,6 +29,10 @@ var t_bob = 0.0
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
+#pickup system variables(ya know the first lines of this code are basically a header file but 4 godot)
+var holding_object = null
+var hold_position = Vector3(0, 1.5, 2)
+
 # i use arch by the way. well actually i don't.
 
 #this function allows you to move your camera
@@ -95,6 +99,7 @@ func xyzbounce(bounceVelocityx: float, bounceVelocityy: float, bounceVelocityz: 
 	velocity.x = velocity.x + bounceVelocityx
 	velocity.y = velocity.y + bounceVelocityy
 	velocity.z = velocity.z + bounceVelocityz
+	
 
 
 
