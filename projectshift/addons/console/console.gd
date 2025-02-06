@@ -413,6 +413,9 @@ func _exit_tree() -> void:
 			write_index += 1
 
 
+#Just found this code hidden at the end of the script.
+#It turns of the dev console if you are playing a final build instead of in the editor.
+#So if we ever wonder why the console doesn't work in a built version of the game, this is why.
 func set_enable_on_release_build(enable : bool):
 	enable_on_release_build = enable
 	if (!enable_on_release_build):
