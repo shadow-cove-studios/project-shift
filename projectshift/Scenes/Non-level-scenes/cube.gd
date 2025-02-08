@@ -1,34 +1,18 @@
 extends RigidBody3D
 
-var picked_up = false
-var player = null
+var player
+var node3d: PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	if picked_up and player:
-		# Update the cube's position to follow the player's camera
-		global_transform.origin = player.get_node("Camera3D").global_transform.origin + player.get_node("Camera3D").global_transform.basis.z * -2
+func _ready():
+	player = get_node("res://Scenes/Non-level-scenes/character_body_3d.tscn") # Adjust the path to your player node
+	node3d = preload("res://Scenes/node_3d.tscn") # Adjust the path to your cube scene
 
 func interact():
-	if not picked_up:
-		pick_up()
-	else:
-		drop()
-
-func pick_up():
-	picked_up = true
-	player = get_tree().get_nodes_in_group("player")[0]  # Assuming the player is in the "player" group
-	set_physics_process(false)
-	gravity_scale = 0
-	collision_layer = 0
-	collision_mask = 0
+	# Remove the cube from the scene
+	queue_free()
 
 func drop():
-	picked_up = false
-	player = null
-	set_physics_process(true)
-	gravity_scale = 1
-	collision_layer = 1
+	# Instance a new cube and add it in front of the player
+	var new_cube = node3d.instance()
+	get_tree().root.add_child(new_cube)
+	new_cube.global_transform.origin = player.global_transform.origin + player.global_transform.basis.z * -2

@@ -53,6 +53,7 @@ camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
 [node name="Cube" parent="." instance=ExtResource("4_hg1hg")]
+collision_layer = 7
 script = null
 
 [node name="Level" type="Node3D" parent="."]
@@ -97,6 +98,7 @@ shape = SubResource("BoxShape3D_cbqko")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Level"]
 transform = Transform3D(14.1578, 0, 0, 0, -5.7606e-07, -1, 0, 13.1787, -4.37114e-08, 0.0225182, 2.79114, -0.0347669)
+layers = 7
 material_override = SubResource("StandardMaterial3D_3edn8")
 mesh = SubResource("QuadMesh_xi6o7")
 skeleton = NodePath("../..")
