@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://tlhjgfirt4mw"]
+
+[ext_resource type="Material" uid="uid://n88ovgj5fmgv" path="res://Assets/textures/floorMaterial.tres" id="2_1frct"]
+
+[node name="CSGBox3D" type="CSGBox3D"]
+material_override = ExtResource("2_1frct")
+use_collision = true
+material = ExtResource("2_1frct")

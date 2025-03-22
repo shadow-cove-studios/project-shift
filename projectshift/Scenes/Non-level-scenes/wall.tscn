@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdrujuvu12jpu"]
+
+[ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="1_ewvrp"]
+[ext_resource type="Material" uid="uid://c1d5sdbr2321b" path="res://Assets/textures/new_standard_material_3d.tres" id="1_p8vae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewvrp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdoii"]
+albedo_texture = ExtResource("1_ewvrp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdoii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34yt5"]
+albedo_texture = ExtResource("1_ewvrp")
+
+[node name="wall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ewvrp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99992, -0.0126708, 0, 0.0126708, 0.99992, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_p8vae")
+material_overlay = SubResource("StandardMaterial3D_pdoii")
+mesh = SubResource("BoxMesh_pdoii")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_34yt5")

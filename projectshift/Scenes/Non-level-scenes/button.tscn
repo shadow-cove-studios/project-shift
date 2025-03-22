@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ykah2hnwx0o2"]
 
-[ext_resource type="Script" path="res://Scenes/Non-level-scenes/button.gd" id="1_eoeja"]
+[ext_resource type="Script" uid="uid://qna45l2ql07c" path="res://Scenes/Non-level-scenes/button.gd" id="1_eoeja"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ga4r"]
 
@@ -63,9 +63,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qkpp"]
 _data = {
-"RESET": SubResource("Animation_gmkxu"),
-"pushdown": SubResource("Animation_833c0"),
-"pushup": SubResource("Animation_xgyjd")
+&"RESET": SubResource("Animation_gmkxu"),
+&"pushdown": SubResource("Animation_833c0"),
+&"pushup": SubResource("Animation_xgyjd")
 }
 
 [node name="button" type="StaticBody3D"]

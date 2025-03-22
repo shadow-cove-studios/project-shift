@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8vjqfl8olko6"]
+[gd_scene load_steps=11 format=3 uid="uid://c8vjqfl8olko6"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_gtsmw"]
+[ext_resource type="Script" uid="uid://cngvnvs1pi7a4" path="res://Scripts/door.gd" id="1_gtsmw"]
 [ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="1_leomy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0g4o5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87g13"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bmwg"]
 albedo_texture = ExtResource("1_leomy")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h6yh6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87g13"]
+albedo_texture = ExtResource("1_leomy")
 
 [sub_resource type="Animation" id="Animation_15kyw"]
 length = 0.001
@@ -57,9 +60,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xt3c"]
 _data = {
-"RESET": SubResource("Animation_15kyw"),
-"doorClose": SubResource("Animation_4s22v"),
-"doorOpen": SubResource("Animation_euy2i")
+&"RESET": SubResource("Animation_15kyw"),
+&"doorClose": SubResource("Animation_4s22v"),
+&"doorOpen": SubResource("Animation_euy2i")
 }
 
 [node name="Door" type="Node3D"]
@@ -78,7 +81,7 @@ shape = SubResource("BoxShape3D_0g4o5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="doorhinge/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_87g13")
+material_override = SubResource("StandardMaterial3D_8bmwg")
 mesh = SubResource("BoxMesh_h6yh6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="doorhinge/StaticBody3D"]
@@ -89,5 +92,5 @@ mesh = SubResource("BoxMesh_h6yh6")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="doorhinge"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_1xt3c")
+&"": SubResource("AnimationLibrary_1xt3c")
 }

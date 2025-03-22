@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de4yc7uoph4vd"]
+
+[ext_resource type="Material" uid="uid://bqrj5q41p4ocf" path="res://Assets/textures/ceiling.tres" id="1_10ama"]
+
+[node name="CSGBox3D" type="CSGBox3D"]
+material_override = ExtResource("1_10ama")
+use_collision = true
+material = ExtResource("1_10ama")
