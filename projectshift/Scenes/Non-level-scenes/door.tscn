@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8vjqfl8olko6"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_gtsmw"]
+[ext_resource type="Script" uid="uid://cngvnvs1pi7a4" path="res://Scripts/door.gd" id="1_gtsmw"]
 [ext_resource type="Texture2D" uid="uid://bsaoohj0x34pk" path="res://Assets/textures/leather_seamless_texture_6689.jpg" id="1_leomy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0g4o5"]
@@ -57,9 +57,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xt3c"]
 _data = {
-"RESET": SubResource("Animation_15kyw"),
-"doorClose": SubResource("Animation_4s22v"),
-"doorOpen": SubResource("Animation_euy2i")
+&"RESET": SubResource("Animation_15kyw"),
+&"doorClose": SubResource("Animation_4s22v"),
+&"doorOpen": SubResource("Animation_euy2i")
 }
 
 [node name="Door" type="Node3D"]
