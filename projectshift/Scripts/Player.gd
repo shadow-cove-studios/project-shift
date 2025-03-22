@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+
 # @tutorial:https://www.youtube.com/watch?v=A3HLeyaBCq4
 # @tutorial:https://www.youtube.com/watch?v=ZzUsKizhb8o&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=1
 #
@@ -28,7 +29,7 @@ var t_bob = 0.0
 #variables that make the head kinda exist in the code, ya know
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
-
+@onready var CarryPosition = $Head/Camera3D/CarryPosition
 #pickup system variables(ya know the first lines of this code are basically a header file but 4 godot)
 var holding_object = null
 var hold_position = Vector3(0, 1.5, 2)
@@ -76,7 +77,7 @@ func _physics_process(delta):
 	t_bob += delta *velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	if carried_object:
-		carried_object.global_position = $CarryPosition.global_position
+		carried_object.global_position = CarryPosition.global_position
 	#the holy move and slide
 	move_and_slide()
 	#it makes you move in the first place, and it is ran at the the physics process, after EVERYTHING ELSE
@@ -136,7 +137,7 @@ func pickup_object():
 		if collider is RigidBody3D:
 			carried_object = collider
 			carried_object.freeze = true
-			carried_object.global_position = $CarryPosition.global_position
+			carried_object.global_position = CarryPosition.global_position
 
 func drop_object():
 	if carried_object:
@@ -145,7 +146,7 @@ func drop_object():
 
 
 	if carried_object:
-		carried_object.global_position = $CarryPosition.global_position
+		carried_object.global_position = CarryPosition.global_position
 # hashtag only in ohios
 #i think im loosing my mental integrity
 

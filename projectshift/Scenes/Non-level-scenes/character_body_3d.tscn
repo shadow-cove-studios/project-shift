@@ -32,5 +32,7 @@ collision_mask = 7
 collide_with_areas = true
 script = ExtResource("2_8uikm")
 
-[node name="CarryPosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78919, -1.44782)
+[node name="CarryPosition" type="Node3D" parent="Head/Camera3D"]
+physics_interpolation_mode = 2
+auto_translate_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0091635, -2.18295)

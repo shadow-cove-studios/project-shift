@@ -53,6 +53,7 @@ camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
 [node name="Cube" parent="." instance=ExtResource("4_hg1hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74073, 2.90054, 0)
 collision_layer = 7
 script = null
 
