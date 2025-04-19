@@ -1,0 +1,137 @@
+[gd_scene load_steps=16 format=3 uid="uid://d2aimpq5chivh"]
+
+[ext_resource type="Script" uid="uid://d3ow34bvjf2qj" path="res://Scripts/node_3d.gd" id="1_kik7a"]
+[ext_resource type="PackedScene" uid="uid://cf4m13xg8uq1q" path="res://Scenes/Non-level-scenes/cube.tscn" id="2_cjrja"]
+[ext_resource type="PackedScene" uid="uid://tlhjgfirt4mw" path="res://Scenes/Non-level-scenes/floor.tscn" id="3_xdo7w"]
+[ext_resource type="PackedScene" uid="uid://de4yc7uoph4vd" path="res://Scenes/Non-level-scenes/ceiling.tscn" id="4_415yl"]
+[ext_resource type="Texture2D" uid="uid://h8rn1cmpr3bi" path="res://Assets/textures/240_F_384189767_jQQ6fpiZ6SWxw3iQOBYviJ5Ldkhmcl8B.jpg" id="5_vt3k8"]
+[ext_resource type="Material" uid="uid://n88ovgj5fmgv" path="res://Assets/textures/floorMaterial.tres" id="6_j41lq"]
+[ext_resource type="Script" uid="uid://c5rs0wkga1j3i" path="res://Scripts/fps_counter.gd" id="7_caodd"]
+[ext_resource type="PackedScene" uid="uid://ykah2hnwx0o2" path="res://Scenes/Non-level-scenes/button.tscn" id="8_e3wk2"]
+[ext_resource type="PackedScene" uid="uid://cdrujuvu12jpu" path="res://Scenes/Non-level-scenes/wall.tscn" id="9_rgx1d"]
+[ext_resource type="Script" uid="uid://cl0rklf2p30i3" path="res://Scripts/menucamera.gd" id="10_01ve6"]
+[ext_resource type="Script" uid="uid://1msucq28tp17" path="res://Scripts/devLevelMenuContainer.gd" id="11_cjrja"]
+
+[sub_resource type="Environment" id="Environment_i72kx"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.65
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qmmw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16hvj"]
+albedo_texture = ExtResource("5_vt3k8")
+
+[sub_resource type="Theme" id="Theme_vr1f0"]
+
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_kik7a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i72kx")
+camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
+
+[node name="Cube" parent="." instance=ExtResource("2_cjrja")]
+transform = Transform3D(0.496762, -0.867887, 0, 0.867887, 0.496762, 0, 0, 0, 1, 3.33611, 1.91204, -2.18609)
+collision_layer = 7
+script = null
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="SpotLight3D3" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.79014, 2.24917, 4.79995)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D4" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.39827, 2.09086, 4.68843)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D5" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.45669, 2.4875, 4.3274)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D6" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.45669, 2.4875, -4.06372)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D7" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9798, 2.0143, -0.483224)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D7" type="OmniLight3D" parent="Level/SpotLight3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.1061, 2.0143, -0.483224)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D7" type="OmniLight3D" parent="Level/SpotLight3D7/SpotLight3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.1061, -0.319442, -4.32226)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D8" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.3727, 2.44643, -4.01222)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="CSGBox3D" parent="Level" instance=ExtResource("3_xdo7w")]
+transform = Transform3D(13.5769, 0, 0, 0, 0.43188, 0, 0, 0, 13.1163, -0.123365, -0.0565209, 0.00427151)
+
+[node name="CSGBox3D2" parent="Level" instance=ExtResource("4_415yl")]
+transform = Transform3D(17.887, 0, 0, 0, 1, 0, 0, 0, 16.7745, 0.00990921, 3.02598, 0.835967)
+material_override = SubResource("StandardMaterial3D_16hvj")
+material = ExtResource("6_j41lq")
+
+[node name="fps counter" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("7_caodd")
+
+[node name="button" parent="." instance=ExtResource("8_e3wk2")]
+transform = Transform3D(0.00527089, 0, -0.999986, 0, 1, 0, 0.999986, 0, 0.00527089, 3.01087, 0.671702, 1.19598)
+
+[node name="wall" parent="." instance=ExtResource("9_rgx1d")]
+transform = Transform3D(14.146, 0, 0, 0, 2.569, 0, 0, 0, 2, 0, 1.22731, 7.22527)
+
+[node name="wall3" parent="." instance=ExtResource("9_rgx1d")]
+transform = Transform3D(14.146, 0, 0, 0, 2.569, 0, 0, 0, 2, 0, 1.22731, -7.0558)
+
+[node name="wall2" parent="." instance=ExtResource("9_rgx1d")]
+transform = Transform3D(-8.2532e-07, 0, 2, 0, 2.569, 0, -18.8811, 0, -8.74228e-08, -7.92506, 1.22732, -0.485106)
+
+[node name="wall4" parent="." instance=ExtResource("9_rgx1d")]
+transform = Transform3D(-8.2532e-07, 0, 2, 0, 2.569, 0, -18.8811, 0, -8.74228e-08, 6.12368, 1.22732, -0.485106)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.502603, 0.325623, -0.80085, 0.0580689, 0.936978, 0.344529, 0.862565, 0.126657, -0.489836, -7.01188, 2.34781, -5.43729)
+fov = 62.2
+near = 0.009
+script = ExtResource("10_01ve6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -317.5
+offset_right = 80.0
+offset_bottom = 317.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00448582
+theme = SubResource("Theme_vr1f0")
+theme_override_constants/separation = 4
+alignment = 1
+script = ExtResource("11_cjrja")
+
+[node name="MainTestLevelButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main test level"
+
+[connection signal="pressed" from="VBoxContainer/MainTestLevelButton" to="VBoxContainer" method="_on_main_test_level_button_pressed"]
