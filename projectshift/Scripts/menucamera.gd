@@ -5,6 +5,9 @@ func _ready():
 	rotation.x = -20
 	rotation.y = -121.5
 	rotation.x = clamp(rotation.x, deg_to_rad(-15), deg_to_rad(5))
+	
+func _process(delta):
+	rotation = lerp(rotation, rotation, 0.01)
 func _input(event):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if event is InputEventMouseMotion:
