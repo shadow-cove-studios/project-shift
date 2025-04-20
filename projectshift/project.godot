@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="ProjectShift"
+config/name="Project Shift"
 run/main_scene="uid://bqh6201u57gpa"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/image="uid://dn14nabkjud6f"
 config/icon="res://Assets/textures/icon.svg"
 
 [autoload]
@@ -20,13 +23,17 @@ config/icon="res://Assets/textures/icon.svg"
 GlobalScript="*res://Scripts/globalScript.gd"
 Console="*res://addons/console/console.gd"
 
+[display]
+
+window/size/mode=2
+
 [dotnet]
 
 project/assembly_name="ProjectShift"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [global_group]
 
@@ -84,3 +91,4 @@ pickup={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2

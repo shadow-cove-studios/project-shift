@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7jtoll0820b5"
-path="res://.godot/imported/Shadow Cove Logov5 (1) (2).png-480b6d074c1752ed00bdcc6767b088bb.ctex"
+uid="uid://cawc456ja8vf5"
+path="res://.godot/imported/constant.svg-f6e857276565573c7540f3c32801842a.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Menus/Shadow Cove Logov5 (1) (2).png"
-dest_files=["res://.godot/imported/Shadow Cove Logov5 (1) (2).png-480b6d074c1752ed00bdcc6767b088bb.ctex"]
+source_file="res://addons/script-ide/icon/constant.svg"
+dest_files=["res://.godot/imported/constant.svg-f6e857276565573c7540f3c32801842a.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=false
