@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://c5rs0wkga1j3i" path="res://Scripts/fps_counter.gd" id="7_gswjg"]
 [ext_resource type="PackedScene" uid="uid://ykah2hnwx0o2" path="res://Scenes/Non-level-scenes/button.tscn" id="8_irgf2"]
 [ext_resource type="PackedScene" uid="uid://cdrujuvu12jpu" path="res://Scenes/Non-level-scenes/wall.tscn" id="9_xcogc"]
-[ext_resource type="Script" uid="uid://cl0rklf2p30i3" path="res://scripts/menucamera.gd" id="10_fa670"]
-[ext_resource type="Script" uid="uid://x85nt3dgks03" path="res://scripts/dev_levels_button.gd" id="11_7p1fn"]
+[ext_resource type="Script" uid="uid://cl0rklf2p30i3" path="res://Scripts/menucamera.gd" id="10_fa670"]
+[ext_resource type="Script" uid="uid://x85nt3dgks03" path="res://Scripts/dev_levels_button.gd" id="11_7p1fn"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -31,7 +31,7 @@ environment = SubResource("Environment_i72kx")
 camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 
 [node name="Cube" parent="." instance=ExtResource("2_7p1fn")]
-transform = Transform3D(0.496762, -0.867887, 0, 0.867887, 0.496762, 0, 0, 0, 1, 3.33611, 1.91204, -2.18609)
+transform = Transform3D(0.496762, -0.867887, 0, 0.867887, 0.496762, 0, 0, 0, 1, -1, 4.5, -5)
 collision_layer = 7
 script = null
 

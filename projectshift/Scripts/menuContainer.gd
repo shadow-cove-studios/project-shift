@@ -31,3 +31,13 @@ func _on_credits_button_mouse_entered():
 
 func _on_credits_button_mouse_exited():
 	$CreditsButton.text = "Roll credits"
+	
+
+#settings button stuff
+
+func _on_settings_button_mouse_entered():
+	$SettingsButton.text = "Wanna customize your gear?\n(this button doesnt work yet)"
+
+
+func _on_settings_button_mouse_exited():
+	$SettingsButton.text = "Settings"
