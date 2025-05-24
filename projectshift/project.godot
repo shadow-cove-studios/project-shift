@@ -22,6 +22,7 @@ config/icon="res://Assets/textures/icon.svg"
 
 GlobalScript="*res://Scripts/globalScript.gd"
 Console="*res://addons/console/console.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 
@@ -33,7 +34,15 @@ project/assembly_name="ProjectShift"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Scenes/": "blue",
+"res://Scripts/": "red"
+}
 
 [global_group]
 

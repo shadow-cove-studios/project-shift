@@ -47,14 +47,14 @@ func _unhandled_input(event):
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-#AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(current date is8/26 2024)
+#AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(current date is 8/26 2024)
 #this function includes all movement and controls, such as gravity, jumping, sprinting, moving, and part of head bob
 func _physics_process(delta):
 	if not is_on_floor():# Adds the gravity.
 		velocity.y -= gravity * delta #still don't know  what this math does
 
 	#makes player jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():#this little param checker right there stops people from infjumping
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() :#this little param checker right there stops people from infjumping
 		velocity.y = JUMP_VELOCITY# please don't remove it
 
 	if Input.is_action_pressed("sprint"):#default sprint key is SHIFT
@@ -111,7 +111,7 @@ func xyzbounce(bounceVelocityx: float, bounceVelocityy: float, bounceVelocityz: 
 var carried_object: RigidBody3D = null
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pickup"):
 		if carried_object:
 			drop_object()

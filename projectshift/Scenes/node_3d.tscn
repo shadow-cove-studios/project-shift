@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ciutdtcryq4ui"]
+[gd_scene load_steps=16 format=3 uid="uid://ciutdtcryq4ui"]
 
 [ext_resource type="Script" uid="uid://d3ow34bvjf2qj" path="res://Scripts/node_3d.gd" id="1_x0ou4"]
 [ext_resource type="PackedScene" uid="uid://c5odi082a5pbt" path="res://Scenes/Non-level-scenes/character_body_3d.tscn" id="2_rvutk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dyi08e5hpkhno" path="res://Scenes/Non-level-scenes/moving_platform.tscn" id="10_or7xy"]
 [ext_resource type="PackedScene" uid="uid://cdrujuvu12jpu" path="res://Scenes/Non-level-scenes/wall.tscn" id="11_vudi7"]
 [ext_resource type="PackedScene" uid="uid://ykah2hnwx0o2" path="res://Scenes/Non-level-scenes/button.tscn" id="12_n8jar"]
+[ext_resource type="PackedScene" uid="uid://gxkw7tj68umf" path="res://Scenes/Non-level-scenes/slidingDoor.tscn" id="13_ahc04"]
 
 [sub_resource type="Environment" id="Environment_i72kx"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -27,12 +28,13 @@ environment = SubResource("Environment_i72kx")
 camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_rvutk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00297356, -0.00942612, -0.00230217)
 
 [node name="Door" parent="." instance=ExtResource("3_ifs4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13817, 1.25942, 4.11497)
 
 [node name="Cube" parent="." instance=ExtResource("4_hg1hg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28313, 8.65884, 0.370101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49227, 8.65884, 0.370101)
 collision_layer = 7
 script = null
 
@@ -90,6 +92,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18323, 1.91336, -5.04297)
 [node name="button" parent="." instance=ExtResource("12_n8jar")]
 transform = Transform3D(0.00527089, 0, -0.999986, 0, 1, 0, 0.999986, 0, 0.00527089, 4.5375, 0.671702, 1.19598)
 
+[node name="button2" parent="." instance=ExtResource("12_n8jar")]
+transform = Transform3D(0.00527089, 0, -0.999986, 0, 1, 0, 0.999986, 0, 0.00527089, 4.5375, 0.671702, -0.256859)
+
 [node name="wall" parent="." instance=ExtResource("11_vudi7")]
 transform = Transform3D(14.146, 0, 0, 0, 7.22726, 0, 0, 0, 2, 0, 1.21779, 7.22527)
 
@@ -101,3 +106,12 @@ transform = Transform3D(-8.2532e-07, 0, 2, 0, 7.5542, 0, -18.8811, 0, -8.74228e-
 
 [node name="wall4" parent="." instance=ExtResource("11_vudi7")]
 transform = Transform3D(-8.2532e-07, 0, 2, 0, 7.22726, 0, -18.8811, 0, -8.74228e-08, 7.94978, 1.21782, -0.485106)
+
+[node name="Door2" parent="." instance=ExtResource("13_ahc04")]
+transform = Transform3D(0.0164926, 0, 0.999864, 0, 1, 0, -0.999864, 0, 0.0164926, 5.744, 1.15942, 1.88803)
+
+[node name="Door3" parent="." instance=ExtResource("13_ahc04")]
+transform = Transform3D(0.0164926, 0, 0.999864, 0, 1, 0, -0.999864, 0, 0.0164926, 5.744, 1.15942, 0.192778)
+
+[connection signal="buttonTriggered" from="button" to="Door2" method="triggered"]
+[connection signal="buttonTriggered" from="button2" to="Door3" method="triggered"]
