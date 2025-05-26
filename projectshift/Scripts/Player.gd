@@ -16,6 +16,7 @@ const WALK_SPEED = 3.0
 const SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
+var walljumpcount: int = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #EDIT: it was supposed to, but i couldn't call it from projectsettings so it's just hard coded in now
 var gravity = 11
@@ -54,9 +55,14 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta #still don't know  what this math does
 
 	#makes player jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() :#this little param checker right there stops people from infjumping
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():#this little param checker right there stops people from infjumping
 		velocity.y = JUMP_VELOCITY# please don't remove it
-
+	
+	#this makes the player walljump
+	if Input.is_action_just_pressed("ui_accept") and is_on_wall() and walljumpcount == 0:
+		velocity.y = JUMP_VELOCITY# please don't remove it
+		walljumpcount = 1
+	
 	if Input.is_action_pressed("sprint"):#default sprint key is SHIFT
 		speed = SPRINT_SPEED
 	else:
@@ -88,6 +94,9 @@ func _headbob(time) -> Vector3:
 	return pos
 	
 
+
+		
+
 #these functions are triggered when the player hits bouncepads
 
 func bounce(bounceVelocity: float):#vertical bounce function
@@ -112,6 +121,8 @@ var carried_object: RigidBody3D = null
 
 
 func _process(_delta):
+	if is_on_floor():
+		walljumpcount = 0
 	if Input.is_action_just_pressed("pickup"):
 		if carried_object:
 			drop_object()

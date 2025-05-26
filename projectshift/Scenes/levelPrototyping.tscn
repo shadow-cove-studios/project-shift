@@ -1,0 +1,207 @@
+[gd_scene load_steps=22 format=3 uid="uid://clvcn8jqfopkj"]
+
+[ext_resource type="Script" uid="uid://d3ow34bvjf2qj" path="res://Scripts/node_3d.gd" id="1_7q337"]
+[ext_resource type="PackedScene" uid="uid://c5odi082a5pbt" path="res://Scenes/Non-level-scenes/character_body_3d.tscn" id="2_46gut"]
+[ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/Non-level-scenes/door.tscn" id="3_4kptn"]
+[ext_resource type="PackedScene" uid="uid://cf4m13xg8uq1q" path="res://Scenes/Non-level-scenes/cube.tscn" id="4_bqs5x"]
+[ext_resource type="PackedScene" uid="uid://tlhjgfirt4mw" path="res://Scenes/Non-level-scenes/floor.tscn" id="5_4q2ga"]
+[ext_resource type="PackedScene" uid="uid://de4yc7uoph4vd" path="res://Scenes/Non-level-scenes/ceiling.tscn" id="6_i48qa"]
+[ext_resource type="Material" uid="uid://n88ovgj5fmgv" path="res://Assets/textures/floorMaterial.tres" id="7_3qiql"]
+[ext_resource type="Script" uid="uid://c5rs0wkga1j3i" path="res://Scripts/fps_counter.gd" id="8_hfqeg"]
+[ext_resource type="PackedScene" uid="uid://ma21vjnc8vwm" path="res://Scenes/Non-level-scenes/vertical_bouncepad.tscn" id="9_mso6i"]
+[ext_resource type="PackedScene" uid="uid://dyi08e5hpkhno" path="res://Scenes/Non-level-scenes/moving_platform.tscn" id="10_nb72x"]
+[ext_resource type="PackedScene" uid="uid://ykah2hnwx0o2" path="res://Scenes/Non-level-scenes/button.tscn" id="11_s0jec"]
+[ext_resource type="PackedScene" uid="uid://cdrujuvu12jpu" path="res://Scenes/Non-level-scenes/wall.tscn" id="12_s7u21"]
+[ext_resource type="PackedScene" uid="uid://gxkw7tj68umf" path="res://Scenes/Non-level-scenes/slidingDoor.tscn" id="13_mb1w0"]
+[ext_resource type="Texture2D" uid="uid://dfm55x2j3sm1r" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="14_46gut"]
+[ext_resource type="Texture2D" uid="uid://cr0eqdc8w3t7h" path="res://addons/kenney_prototype_textures/purple/texture_01.png" id="15_4kptn"]
+[ext_resource type="Texture2D" uid="uid://ddkomi8nqri5x" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="16_bqs5x"]
+
+[sub_resource type="Environment" id="Environment_i72kx"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.65
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qmmw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kptn"]
+albedo_texture = ExtResource("14_46gut")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqs5x"]
+albedo_texture = ExtResource("15_4kptn")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q2ga"]
+albedo_texture = ExtResource("16_bqs5x")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_7q337")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i72kx")
+camera_attributes = SubResource("CameraAttributesPractical_qmmw7")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_46gut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00297356, 0.493545, -0.00230217)
+
+[node name="Door" parent="." instance=ExtResource("3_4kptn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29708, 1.25942, 4.11497)
+
+[node name="Cube" parent="." instance=ExtResource("4_bqs5x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49227, 8.65884, 0.370101)
+collision_layer = 7
+script = null
+
+[node name="Level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.0044)
+
+[node name="SpotLight3D3" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.33816, 2.4875, 4.3274)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D4" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.03252, 2.4875, 4.3274)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D5" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.45669, 2.4875, 4.3274)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D6" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.45669, 2.4875, -4.06372)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D7" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.0823, 2.49536, -4.06372)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="SpotLight3D8" type="OmniLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.3727, 2.44643, -4.01222)
+light_energy = 1.177
+light_indirect_energy = 1.941
+
+[node name="CSGBox3D" parent="Level" instance=ExtResource("5_4q2ga")]
+transform = Transform3D(13.5769, 0, 0, 0, 0.43188, 0, 0, 0, 13.1163, -0.123365, -0.0565209, 0.00427151)
+
+[node name="CSGBox3D2" parent="Level" instance=ExtResource("6_i48qa")]
+transform = Transform3D(17.887, 0, 0, 0, 1, 0, 0, 0, 16.7745, 0.00990921, 5.32078, 0.835967)
+material_override = ExtResource("7_3qiql")
+material = ExtResource("7_3qiql")
+
+[node name="wall" parent="Level" instance=ExtResource("12_s7u21")]
+transform = Transform3D(14.146, 0, 0, 0, 7.22726, 0, 0, 0, 2, 0, 1.21779, 7.22527)
+
+[node name="wall3" parent="Level" instance=ExtResource("12_s7u21")]
+transform = Transform3D(14.146, 0, 0, 0, 7.22726, 0, 0, 0, 2, 0, 1.21779, -7.0558)
+
+[node name="wall2" parent="Level" instance=ExtResource("12_s7u21")]
+transform = Transform3D(-8.2532e-07, 0, 2, 0, 7.5542, 0, -18.8811, 0, -8.74228e-08, -7.92506, 1.27685, -0.485106)
+
+[node name="wall4" parent="Level" instance=ExtResource("12_s7u21")]
+transform = Transform3D(-8.2532e-07, 0, 2, 0, 7.22726, 0, -18.8811, 0, -8.74228e-08, 7.94978, 1.21782, -0.485106)
+
+[node name="verticalBouncepad" parent="Level" instance=ExtResource("9_mso6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195932, -0.27795, -3.43125)
+
+[node name="movingPlatform" parent="Level" instance=ExtResource("10_nb72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18323, 1.91336, -5.04297)
+
+[node name="fps counter" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("8_hfqeg")
+
+[node name="button" parent="." instance=ExtResource("11_s0jec")]
+transform = Transform3D(0.0293521, 0, 0.999569, 0, 1, 0, -0.999569, 0, 0.0293521, -2.07582, 0.0233097, 1.19598)
+
+[node name="button2" parent="." instance=ExtResource("11_s0jec")]
+transform = Transform3D(0.00527089, 0, -0.999986, 0, 1, 0, 0.999986, 0, 0.00527089, 4.5375, 0.671702, -0.256859)
+
+[node name="Door2" parent="." instance=ExtResource("13_mb1w0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81218, 0.500587, 6.33414)
+
+[node name="Door4" parent="." instance=ExtResource("13_mb1w0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.80922, 0.500587, 6.33414)
+
+[node name="Door3" parent="." instance=ExtResource("13_mb1w0")]
+transform = Transform3D(0.0164926, 0, 0.999864, 0, 1, 0, -0.999864, 0, 0.0164926, 5.744, 1.15942, 0.192778)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85785, 2.21729, 2.53436)
+use_collision = true
+flip_faces = true
+size = Vector3(10.3051, 5.46985, 7.40564)
+material = SubResource("StandardMaterial3D_4kptn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.67888, 2.37469, 13.7751)
+use_collision = true
+flip_faces = true
+size = Vector3(10.9277, 5.76453, 8)
+material = SubResource("StandardMaterial3D_bqs5x")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.30639, 0.50182, 6.9989)
+use_collision = true
+flip_faces = true
+size = Vector3(2.6558, 2.03891, 2.00663)
+material = SubResource("StandardMaterial3D_4kptn")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.59112, 5.57697, 17.5365)
+use_collision = true
+flip_faces = true
+size = Vector3(3.33864, 2.03891, 4.13995)
+material = SubResource("StandardMaterial3D_4kptn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597383, 2.94495, 2.66396)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227838, 2.94495, 10.6125)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78831, 2.94495, 13.7824)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.777, 2.94495, 16.6612)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06421, 2.94495, 2.66396)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21988, 2.14637, 2.66396)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10937, 0.159304, 11.1625)
+operation = 2
+flip_faces = true
+material = SubResource("StandardMaterial3D_4q2ga")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11697, 1.22145, 13.466)
+operation = 2
+flip_faces = true
+material = SubResource("StandardMaterial3D_4q2ga")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10324, 1.22145, 18.7526)
+operation = 2
+flip_faces = true
+material = SubResource("StandardMaterial3D_4q2ga")
+
+[connection signal="buttonTriggered" from="button" to="Door2" method="triggered"]
+[connection signal="buttonTriggered" from="button" to="Door4" method="triggered"]
+[connection signal="buttonTriggered" from="button2" to="Door3" method="triggered"]
