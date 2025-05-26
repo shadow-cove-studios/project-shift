@@ -25,13 +25,11 @@ ambient_light_sky_contribution = 0.65
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kptn"]
 albedo_texture = ExtResource("14_46gut")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqs5x"]
 albedo_texture = ExtResource("15_4kptn")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -144,7 +142,7 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85785, 2.21729, 2.53436)
 use_collision = true
 flip_faces = true
-size = Vector3(10.57, 5.47, 7.406)
+size = Vector3(10.3051, 5.46985, 7.40564)
 material = SubResource("StandardMaterial3D_4kptn")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -205,14 +203,14 @@ flip_faces = true
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132706, -49.9314, -0.0162659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132706, -49.6107, -0.0162659)
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74686, 2.21729, 2.53436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85785, 2.21729, 2.53436)
 use_collision = true
 flip_faces = true
-size = Vector3(10.57, 5.47, 7.406)
+size = Vector3(10.3051, 5.46985, 7.40564)
 material = SubResource("StandardMaterial3D_4kptn")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
@@ -223,7 +221,7 @@ size = Vector3(10.9277, 5.76453, 8)
 material = SubResource("StandardMaterial3D_bqs5x")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.30226, 0.507015, 6.99519)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.30639, 0.50182, 6.9989)
 use_collision = true
 flip_faces = true
 size = Vector3(2.6558, 2.03891, 2.00663)

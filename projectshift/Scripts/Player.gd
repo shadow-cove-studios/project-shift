@@ -17,6 +17,7 @@ const SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
 var walljumpcount: int = 0
+var shifted: bool =  false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #EDIT: it was supposed to, but i couldn't call it from projectsettings so it's just hard coded in now
 var gravity = 11
@@ -63,6 +64,15 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY# please don't remove it
 		walljumpcount = 1
 	
+	if Input.is_action_just_pressed("shift"):
+		if shifted == false:
+			global_position.y =  global_position.y - 50
+			shifted = true
+			
+		elif shifted == true:
+			global_position.y = global_position.y + 50
+			shifted = false
+	
 	if Input.is_action_pressed("sprint"):#default sprint key is SHIFT
 		speed = SPRINT_SPEED
 	else:
@@ -95,7 +105,9 @@ func _headbob(time) -> Vector3:
 	
 
 
-		
+
+	
+
 
 #these functions are triggered when the player hits bouncepads
 
