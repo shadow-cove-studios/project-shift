@@ -134,4 +134,9 @@ script = ExtResource("11_cjrja")
 layout_mode = 2
 text = "Main test level"
 
+[node name="lvlproto" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level Prototyping"
+
 [connection signal="pressed" from="VBoxContainer/MainTestLevelButton" to="VBoxContainer" method="_on_main_test_level_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/lvlproto" to="VBoxContainer" method="_on_lvlproto_pressed"]
