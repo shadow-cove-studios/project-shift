@@ -13,7 +13,7 @@ var speed: float # walkspeed to sprintspeed depending on if you're walking or sp
 
 #please, resist the urge to change these to 99999999
 const WALK_SPEED = 3.0 
-const SPRINT_SPEED = 5.0
+var SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
 var walljumpcount: int = 0
@@ -63,9 +63,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_wall() and not is_on_floor() and walljumpcount < 2:
 		velocity.y = JUMP_VELOCITY
 		walljumpcount = walljumpcount +1
+
 	#this is the biggest if condition known to man. It checks if you should be wallrunning or not.
 	if Input.is_action_pressed("sprint") and is_on_wall() and not is_on_floor() and velocity.y <0 and ((velocity.x >3 or velocity.x <-3 ) or (velocity.z <-3 or velocity.z > 3)):
 		velocity.y= -1
+		SPRINT_SPEED = 6.5
 	
 		
 	
@@ -140,6 +142,7 @@ var carried_object: RigidBody3D = null
 func _process(_delta):
 	if is_on_floor():
 		walljumpcount = 0
+		SPRINT_SPEED = 5.0
 	if Input.is_action_just_pressed("pickup"):
 		if carried_object:
 			drop_object()
