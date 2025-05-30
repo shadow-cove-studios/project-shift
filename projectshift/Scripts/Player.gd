@@ -63,7 +63,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_wall() and not is_on_floor() and walljumpcount < 2:
 		velocity.y = JUMP_VELOCITY
 		walljumpcount = walljumpcount +1
-	if Input.is_action_pressed("sprint") and is_on_wall() and not is_on_floor() and velocity.y <0:
+	#this is the biggest if condition known to man. It checks if you should be wallrunning or not.
+	if Input.is_action_pressed("sprint") and is_on_wall() and not is_on_floor() and velocity.y <0 and ((velocity.x >3 or velocity.x <-3 ) or (velocity.z <-3 or velocity.z > 3)):
 		velocity.y= -1
 	
 		
