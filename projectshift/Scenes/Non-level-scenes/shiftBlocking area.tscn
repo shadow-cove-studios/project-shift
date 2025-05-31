@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgb21key3bt5x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5oi1"]
+size = Vector3(12.5261, 12.1447, 11.5818)
+
+[node name="Node3D" type="Node3D" groups=["Shiftblocker"]]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_h5oi1")

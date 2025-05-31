@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://clvcn8jqfopkj"]
+[gd_scene load_steps=23 format=3 uid="uid://clvcn8jqfopkj"]
 
 [ext_resource type="Script" uid="uid://d3ow34bvjf2qj" path="res://Scripts/node_3d.gd" id="1_7q337"]
 [ext_resource type="PackedScene" uid="uid://c5odi082a5pbt" path="res://Scenes/Non-level-scenes/character_body_3d.tscn" id="2_46gut"]
@@ -39,6 +39,9 @@ uv1_world_triplanar = true
 albedo_texture = ExtResource("16_bqs5x")
 uv1_triplanar = true
 uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqs5x"]
+size = Vector3(7.95544, 2.77979, 6.66699)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_7q337")
@@ -284,10 +287,10 @@ size = Vector3(0.974365, 1, 1.08716)
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1.82322, 0.540301, 0, -1.16479, 0.845722, 0, 0, 0, 2.16353, -11.5744, 1.21703, 5.51775)
+transform = Transform3D(1.82835, 0.536561, 0, -1.15673, 0.8481, 0, 0, 0, 2.16353, -11.5219, 1.23479, 5.51775)
 operation = 2
 flip_faces = true
-size = Vector3(3.97211, 1, 0.800537)
+size = Vector3(4.00182, 1, 0.800537)
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -305,10 +308,10 @@ size = Vector3(0.974365, 1, 3.66663)
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(4.07307, 0, 0, 0, 1, 0, 0, 0, 2.15582, -3.26549, 5.97582, 5.17116)
+transform = Transform3D(4.07307, 0, 0, 0, 1, 0, 0, 0, 2.15582, -3.54778, 5.98458, 5.10825)
 operation = 2
 flip_faces = true
-size = Vector3(0.974365, 1.20044, 1.12161)
+size = Vector3(1.02838, 1.21796, 1.06325)
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -350,7 +353,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132706, -49.9314, -0.016265
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49907, 5.5848, 2.53436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.499, 5.494, 2.534)
 use_collision = true
 flip_faces = true
 size = Vector3(25.062, 12, 7.406)
@@ -414,7 +417,7 @@ flip_faces = true
 material = SubResource("StandardMaterial3D_4q2ga")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.72371, 7.5414, 11.3333)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.724, 8.443, 11.333)
 use_collision = true
 flip_faces = true
 size = Vector3(15.777, 3.895, 4.14)
@@ -449,7 +452,14 @@ size = Vector3(3.06, 3, 5.49809)
 material = SubResource("StandardMaterial3D_4kptn")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_46gut")]
-transform = Transform3D(1, 0, 0, 0, 0.90242, 0, 0, 0, 1, 1.15438, -0.506415, 1.87918)
+transform = Transform3D(1, 0, 0, 0, 0.90242, 0, 0, 0, 1, 2.67971, -0.50641, 2.04005)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Shiftblocker"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35279, 0.739468, 5.27713)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07477, 0.889893, -2.8335)
+shape = SubResource("BoxShape3D_bqs5x")
 
 [connection signal="buttonTriggered" from="button" to="Door2" method="triggered"]
 [connection signal="buttonTriggered" from="button" to="Door4" method="triggered"]

@@ -23,6 +23,7 @@ config/icon="res://Assets/textures/icon.svg"
 GlobalScript="*res://Scripts/globalScript.gd"
 Console="*res://addons/console/console.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+PlayerVariables="*res://Scripts/player_variables.gd"
 
 [display]
 
@@ -48,6 +49,7 @@ folder_colors={
 
 canGrab="if an object is in this group, you can grab it"
 player=""
+Shiftblocker=""
 
 [input]
 

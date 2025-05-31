@@ -18,6 +18,7 @@ const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
 var walljumpcount: int = 0
 var shifted: bool =  false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #EDIT: it was supposed to, but i couldn't call it from projectsettings so it's just hard coded in now
 var gravity = 11
@@ -30,6 +31,7 @@ var t_bob = 0.0
 #variables that make the head kinda exist in the code, ya know
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var collisionShape = $CollisionShape3D
 
 #pickup system variables(ya know the first lines of this code are basically a header file but 4 godot)
 var holding_object = null
@@ -49,6 +51,8 @@ func _unhandled_input(event):
 func _ready(): #this stole your mouse(hehe)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	PlayerVariables.canshift = true
+	
 #AHHH IM SO ANNOYED. btw that comment was random. it was made like a month ago from now(current date is 8/26 2024)
 #this function includes all movement and controls, such as gravity, jumping, sprinting, moving, and part of head bob
 func _physics_process(delta):
@@ -69,10 +73,14 @@ func _physics_process(delta):
 		velocity.y= -1
 		SPRINT_SPEED = 6.5
 	
-		
 	
-	if Input.is_action_just_pressed("shift"):
-		if shifted == false:
+	
+		
+		
+		
+	#code that makes you shift. Very simple
+	if Input.is_action_just_pressed("shift") and PlayerVariables.canshift:
+		if shifted == false: 
 			global_position.y =  global_position.y - 50
 			shifted = true
 			
@@ -113,7 +121,7 @@ func _headbob(time) -> Vector3:
 
 
 
-	
+
 
 
 #these functions are triggered when the player hits bouncepads
@@ -186,3 +194,15 @@ func drop_object():
 #		get_tree().quit() im not using this code anymore
 
 #type " exit or quit" in the dev console to close the debugging window
+
+
+func _on_area_3d_area_entered(area):
+	if area.is_in_group("Shiftblocker"):
+		print("cannon shift")
+		PlayerVariables.canshift = false
+
+
+func _on_area_3d_area_exited(area):
+	if area.is_in_group("Shiftblocker"):
+		print("can shift")
+		PlayerVariables.canshift = true
