@@ -25,6 +25,58 @@ skeleton = NodePath("../..")
 [node name="Camera3D" type="Camera3D" parent="Head" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
 
+[node name="PlayerUI" type="Control" parent="Head/Camera3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/PlayerUI"]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="InventorySlot" type="ColorRect" parent="Head/Camera3D/PlayerUI/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="InventorySlot2" type="ColorRect" parent="Head/Camera3D/PlayerUI/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="InventroySlot3" type="ColorRect" parent="Head/Camera3D/PlayerUI/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="InventorySlot4" type="ColorRect" parent="Head/Camera3D/PlayerUI/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Head/Camera3D/PlayerUI"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Can shift"
+
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.356315)
 collision_mask = 7
