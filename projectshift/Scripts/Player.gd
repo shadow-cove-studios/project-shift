@@ -17,7 +17,7 @@ var SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
 var walljumpcount: int = 0
-var shifted: bool =  false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #EDIT: it was supposed to, but i couldn't call it from projectsettings so it's just hard coded in now
@@ -80,13 +80,13 @@ func _physics_process(delta):
 		
 	#code that makes you shift. Very simple
 	if Input.is_action_just_pressed("shift") and PlayerVariables.canshift:
-		if shifted == false: 
+		if PlayerVariables.shifted == false: 
 			global_position.y =  global_position.y - 50
-			shifted = true
+			PlayerVariables.shifted = true
 			
-		elif shifted == true:
+		elif PlayerVariables.shifted == true:
 			global_position.y = global_position.y + 50
-			shifted = false
+			PlayerVariables.shifted = false
 	
 	if Input.is_action_pressed("sprint"):#default sprint key is SHIFT
 		speed = SPRINT_SPEED

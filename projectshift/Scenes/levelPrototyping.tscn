@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://clvcn8jqfopkj"]
+[gd_scene load_steps=24 format=3 uid="uid://clvcn8jqfopkj"]
 
 [ext_resource type="Script" uid="uid://d3ow34bvjf2qj" path="res://Scripts/node_3d.gd" id="1_7q337"]
+[ext_resource type="PackedScene" uid="uid://dyi8i4txmmbtu" path="res://Scenes/Non-level-scenes/playerhud.tscn" id="2_4q2ga"]
 [ext_resource type="PackedScene" uid="uid://c5odi082a5pbt" path="res://Scenes/Non-level-scenes/character_body_3d.tscn" id="2_46gut"]
 [ext_resource type="PackedScene" uid="uid://c8vjqfl8olko6" path="res://Scenes/Non-level-scenes/door.tscn" id="3_4kptn"]
 [ext_resource type="PackedScene" uid="uid://cf4m13xg8uq1q" path="res://Scenes/Non-level-scenes/cube.tscn" id="4_bqs5x"]
@@ -460,6 +461,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35279, 0.739468, 5.27713)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07477, 0.889893, -2.8335)
 shape = SubResource("BoxShape3D_bqs5x")
+
+[node name="Control" parent="." instance=ExtResource("2_4q2ga")]
 
 [connection signal="buttonTriggered" from="button" to="Door2" method="triggered"]
 [connection signal="buttonTriggered" from="button" to="Door4" method="triggered"]
