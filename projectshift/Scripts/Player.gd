@@ -17,6 +17,9 @@ var SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.003
 var walljumpcount: int = 0
+const MAX_STEP_HEIGHT = 0.45
+var _snapped_to_stairs_last_frame := false
+var _last_frame_was_on_floor = -INF
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -75,7 +78,7 @@ func _physics_process(delta):
 	
 	
 	
-		
+	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 		
 		
 	#code that makes you shift. Very simple
@@ -98,7 +101,7 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.z = direction.z * speed	
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
@@ -108,9 +111,11 @@ func _physics_process(delta):
 	camera.transform.origin = _headbob(t_bob)
 	if carried_object:
 		carried_object.global_position = $CarryPosition.global_position
-	#the holy move and slide
-	move_and_slide()
-	#it makes you move in the first place, and it is ran at the the physics process, after EVERYTHING ELSE
+	if not _snap_up_stairs_check(delta):
+		#the holy move and slide
+		move_and_slide()
+		#it makes you move in the first place, and it is ran at the the physics process, after EVERYTHING ELSE
+		_snap_down_to_stairs_check()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -120,10 +125,47 @@ func _headbob(time) -> Vector3:
 	
 
 
+func is_surface_too_steep(normal : Vector3) -> bool:
+	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 
 
+func _run_body_test_motion(from : Transform3D, motion : Vector3, result = null) -> bool:
+	if not result: result = PhysicsTestMotionResult3D.new()
+	var params = PhysicsTestMotionParameters3D.new()
+	params.from = from
+	params.motion = motion
+	return PhysicsServer3D.body_test_motion(self.get_rid(), params, result)
+	
+func _snap_down_to_stairs_check() -> void:
+	var did_snap := false
+	var floor_below : bool = %StairsBelowRayCast3D.is_colliding() and not is_surface_too_steep(%StairsBelowRayCast3D.get_collision_normal())
+	var was_on_floor_last_frame = Engine.get_physics_frames() - _last_frame_was_on_floor == 1
+	if not is_on_floor() and velocity.y <= 0 and (was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
+		var body_test_result = PhysicsTestMotionResult3D.new()
+		if _run_body_test_motion(self.global_transform, Vector3(0,-MAX_STEP_HEIGHT,0), body_test_result):
+			var translate_y = body_test_result.get_travel().y
+			self.position.y += translate_y
+			apply_floor_snap()
+			did_snap = true
+	_snapped_to_stairs_last_frame = did_snap
 
-
+func _snap_up_stairs_check(delta) -> bool:
+	if not is_on_floor() and not _snapped_to_stairs_last_frame: return false
+	var expected_move_motion = self.velocity * Vector3(1,0,1) * delta
+	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
+	var down_check_result = PhysicsTestMotionResult3D.new()
+	#nevermind i think this is the biggest if condition ever
+	if (_run_body_test_motion(step_pos_with_clearance, Vector3(0, -MAX_STEP_HEIGHT*2,0), down_check_result)) and (down_check_result.get_collider().is_class("StaticBody3D") or down_check_result.get_collider().is_class("CSGShape3D")):
+		var step_height = ((step_pos_with_clearance.origin + down_check_result.get_travel()) - self.global_position).y
+		if step_height > MAX_STEP_HEIGHT or (down_check_result.get_collision_point() - self.global_position).y > MAX_STEP_HEIGHT: return false
+		%StairsAheadRayCast3D.global_position = down_check_result.get_collision_point() + Vector3(0, MAX_STEP_HEIGHT,0) + expected_move_motion.normalized() * 0.1
+		%StairsAheadRayCast3D.force_raycast_update()
+		if %StairsAheadRayCast3D.is_colliding() and not is_surface_too_steep(%StairsAheadRayCast3D.get_collision_normal()):
+			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
+			apply_floor_snap()
+			_snapped_to_stairs_last_frame = true
+			return true
+	return false
 #these functions are triggered when the player hits bouncepads
 
 func bounce(bounceVelocity: float):#vertical bounce function
@@ -198,11 +240,9 @@ func drop_object():
 
 func _on_area_3d_area_entered(area):
 	if area.is_in_group("Shiftblocker"):
-		print("cannon shift")
 		PlayerVariables.canshift = false
 
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("Shiftblocker"):
-		print("can shift")
 		PlayerVariables.canshift = true
